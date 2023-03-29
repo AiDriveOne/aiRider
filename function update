@@ -1,0 +1,4 @@
+from update_syntax_info import update_syntax_info
+
+# Call the function
+update_syntax_info()
