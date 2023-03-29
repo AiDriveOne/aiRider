@@ -1,0 +1,16 @@
+aiDrive/
+    update_syntax_info.py
+    main.py
+    ...
+aiDrive Driver/
+    update_syntax_info.py
+    main.py
+    ...
+aiFood online ordering/
+    update_syntax_info.py
+    main.py
+    ...
+aiRider delivery services/
+    update_syntax_info.py
+    main.py
+    ...
