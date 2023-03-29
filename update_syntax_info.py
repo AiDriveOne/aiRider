@@ -63,4 +63,8 @@ def update_syntax_info():
             # Copy file from remote repository
             response = requests.get(url)
             if response.status_code == 200:
-                with open(file_path, 'wb') as f
+                with open(file_path, 'wb') as f:
+                    f.write(response.content)
+
+if __name__ == '__main__':
+    update_syntax_info()
