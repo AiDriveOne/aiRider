@@ -1,3 +1,5 @@
+// file name: payment_processing.php
+
 function processPayment($paymentInfo) {
   // Verify payment information
   if (!verifyPaymentInfo($paymentInfo)) {
