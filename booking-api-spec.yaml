@@ -1,0 +1,21 @@
+POST /api/airider/booking
+
+Request Body:
+{
+  "pickup_location": "123 Main St",
+  "destination": "456 Elm St",
+  "pickup_time": "2023-04-01T14:00:00Z",
+  "passengers": 2,
+  "luggage": 2,
+  "vehicle_type": "sedan"
+}
+
+Response Body:
+{
+  "booking_id": "123456",
+  "driver_name": "John Doe",
+  "driver_phone": "123-456-7890",
+  "vehicle_model": "Toyota Camry",
+  "vehicle_license": "ABC123",
+  "estimated_arrival_time": "2023-04-01T14:15:00Z"
+}
