@@ -1,3 +1,5 @@
+// file name: inventory_management.php
+
 function updateInventory($orderId) {
   $order = getOrder($orderId);
   $items = $order->getItems();
