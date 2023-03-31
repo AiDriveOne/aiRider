@@ -1,0 +1,18 @@
+{
+  "name": "my-tfjs-app",
+  "version": "1.0.0",
+  "description": "\"A deep learning-based delivery management system for aiDrive's logistics ecosystem. The system utilizes state-of-the-art artificial neural networks and deep learning algorithms to optimize delivery routes, predict delivery times, and reduce costs, while improving overall customer satisfaction. The system also leverages the Scikit-Learn library for advanced machine learning techniques such as clustering and classification.\"",
+  "main": "\"index.js\"",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "{"
+  },
+  "keywords": [
+    "{"
+  ],
+  "author": "",
+  "license": "ISC"
+}
