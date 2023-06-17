@@ -1,8 +1,9 @@
 import os
-import shutil
-import requests
 
-def update_syntax_info():
+def monitor_and_fix():
+    # Set up the project folder path
+    project_folder = 'aiDrive_company_ecosystem'
+
     # Dictionary mapping folder names to the files they should contain
     folder_mapping = {
         'gems_folder': ['gems/neural.gems', 'gems/ai.gems', 'gems/ml.gems', 'gems/dl.gems', 'gems/scikit.gems'],
@@ -30,41 +31,47 @@ def update_syntax_info():
         'scikit.text': 'scikit-learn\n'
     }
 
-    # Dictionary to keep track of missing files
-    missing_files = {}
+    # Create a log file to store changes
+    log_file = 'fixes.log'
 
-    # Get list of all files in aiDrive company ecosystem folders
-    all_files = []
-    for folder_name in folder_mapping:
-        folder_path = os.path.join('aiDrive_company_ecosystem', folder_name)
-        if os.path.isdir(folder_path):
-            for file_name in os.listdir(folder_path):
+    # Monitor the project folder and files continuously
+    while True:
+        # Dictionary to keep track of missing files
+        missing_files = {}
+
+        # Check for missing files in each folder
+        for folder_name, files in folder_mapping.items():
+            folder_path = os.path.join(project_folder, folder_name)
+            if not os.path.isdir(folder_path):
+                os.makedirs(folder_path)
+            
+            for file_name in files:
                 file_path = os.path.join(folder_path, file_name)
-                if os.path.isfile(file_path):
-                    all_files.append(file_path)
+                if not os.path.isfile(file_path):
+                    # File is missing, create it with default content
+                    with open(file_path, 'w') as f:
+                        f.write(default_contents[file_name])
+                    missing_files[file_path] = True
 
-    # Check for missing files in each folder
-    for folder_name, files in folder_mapping.items():
-        folder_path = os.path.join('aiDrive_company_ecosystem', folder_name)
-        if not os.path.isdir(folder_path):
-            os.makedirs(folder_path)
-        for file_name in files:
-            file_path = os.path.join(folder_path, file_name)
-            if not os.path.isfile(file_path):
-                # File is missing, create it with default content
-                os.makedirs(os.path.dirname(file_path), exist_ok=True)
-                with open(file_path, 'w') as f:
-                    f.write(default_contents[file_name])
-                missing_files[file_path] = f"https://remote_repository.com/{folder_name}/{file_name}"
+        # Log changes to the log file
+        with open(log_file, 'a') as log:
+            log.write("Detected Issues:\n")
+            if not missing_files:
+                log.write("No missing files found.\n")
+            for file_path in missing_files:
+                log.write(f"Missing file: {file_path}\n")
+        
+        if missing_files:
+            # Print an explanation of the changes made
+            print("Detected Issues:")
+            if not missing_files:
+                print("No missing files found.")
+            for file_path in missing_files:
+                print(f"Missing file: {file_path}")
 
-    # Copy missing files to appropriate folders
-    for file_path, url in missing_files.items():
-        if url:
-            # Copy file from remote repository
-            response = requests.get(url)
-            if response.status_code == 200:
-                with open(file_path, 'wb') as f:
-                    f.write(response.content)
+        # Sleep for a specified interval before rechecking the folder
+        sleep_duration = 60  # Sleep for 60 seconds (adjust as needed)
+        time.sleep(sleep_duration)
 
 if __name__ == '__main__':
-    update_syntax_info()
+    monitor_and_fix()
