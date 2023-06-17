@@ -1,5 +1,5 @@
 {
-  "name": "airider",
+  "name": "aiRider",
   "version": "1.0.0",
   "description": "Delivery side of aiDrive Company ecosystem",
   "main": "index.js",
@@ -10,7 +10,13 @@
   "keywords": [
     "ai",
     "delivery",
-    "transportation"
+    "transportation",
+    "natural language processing",
+    "image processing",
+    "computer vision",
+    "recommendation systems",
+    "time series analysis",
+    "reinforcement learning"
   ],
   "author": "Your Name",
   "license": "MIT",
@@ -18,6 +24,16 @@
     "express": "^4.17.1",
     "axios": "^0.22.0",
     "dotenv": "^10.0.0",
-    "mongoose": "^6.2.0"
+    "mongoose": "^6.2.0",
+    "nltk": "^3.6.3",
+    "spacy": "^4.1.0",
+    "opencv": "^4.5.4",
+    "tensorflowjs": "^3.10.0",
+    "lightfm": "^1.16",
+    "surprise": "^1.1.1",
+    "pandas": "^1.4.0",
+    "prophet": "^1.0.1",
+    "tensorflow": "^2.7.0",
+    "pytorch": "^1.10.0"
   }
 }
