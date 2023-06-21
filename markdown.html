@@ -1,0 +1,35 @@
+<!-- Place this code in index.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Collaborative Markdown Editor</title>
+    <link rel="stylesheet" href="codemirror.css" />
+  </head>
+  <body>
+    <div id="editor"></div>
+
+    <script src="codemirror.js"></script>
+    <script src="markdown.js"></script>
+    <script src="socket.io.js"></script>
+    <script>
+      var editor = CodeMirror(document.getElementById("editor"), {
+        mode: "markdown",
+        lineNumbers: true,
+        lineWrapping: true,
+      });
+
+      var socket = io();
+
+      // Send changes to the server
+      editor.on("changes", function () {
+        var content = editor.getValue();
+        socket.emit("content-update", content);
+      });
+
+      // Receive updated content from the server
+      socket.on("content-update", function (content) {
+        editor.setValue(content);
+      });
+    </script>
+  </body>
+</html>
