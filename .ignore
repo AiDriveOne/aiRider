@@ -1,0 +1,91 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+*.db
+*.mdb
+
+# AI/ML/DL #
+############
+# Python virtual environment
+venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Model artifacts and checkpoints
+models/
+*.h5
+*.hdf5
+*.pth
+*.ckpt
+
+# TensorBoard logs
+logs/
+
+# Compiled Python files
+*.pyc
+__pycache__/
+
+# Environment-specific files #
+##############################
+# Anaconda/Miniconda environment
+.conda/
+
+# Virtual environment
+.env/
+.env.bak/
+
+# OS generated files #
+######################
+.DS_Store
+ehthumbs.db
+Thumbs.db
+
+# Editor-specific #
+###################
+.vscode/
+.idea/
+
+# Build tools #
+##############
+build/
+dist/
+node_modules/
+out/
+target/
+
+# Dependency files #
+####################
+package-lock.json
+yarn.lock
+Gemfile.lock
+composer.lock
+
+# Miscellaneous #
+#################
+*.bak
+*.swp
+*.tmp
+desktop.ini
